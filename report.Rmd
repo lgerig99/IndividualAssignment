@@ -1,0 +1,52 @@
+---
+title: "report"
+author: "Logan Gerig"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+# Description of the Dataset and Analysis
+
+The dataset used in this project is a time-to-death dataset of patients with advanced heart failure following admission into the Institute of Cardiology and Allied Hospital in Faisalabad Pakistan from the months of April to December in 2015. Because the sample came from this time range, participants past the month of April were subsequently censored. The dataset contains 299 observations/participants along with their follow-up time from admission and whether they died. Additionally, demographic information such as age, smoking status, sex, platelet count, and other medical indicators are included in the dataset.
+
+The analysis objectives within this R-markdown follow the concepts being learned in BIOS 522 (Survival Analysis Methods). First, I intend on stratifying the dataset into a cohort diagnosed with diabetes and a cohort without diabetes. From here, I will examine their demographic characteristics to see if any discrepancies between the two groups exist. I also will create and plot the two group's Kaplan-Meier curves for a visual insight as to whether the survival probabilities differ between those with and without diabetes. Later on I wish to use Cox Hazards modeling and hypothesis testing to explore differences in survival between variables such as diabetes, sex, and smoking status.
+
+The dataset used is from the following paper:
+Ahmad T, Munir A, Bhatti SH, Aftab M, Raza MA (2017) Survival analysis of heart failure patients: A case study. PLOS ONE 12(7): e0181001. https://doi.org/10.1371/journal.pone.0181001
+
+
+# Bringing in the Dataset
+```{r, bringing dataset}
+#Telling R what part of the directory I am in
+here::i_am("report.Rmd")
+
+#Bringing in the cleaned dataset from the end of the first program
+df<-readRDS(file = here::here("Data/cleandataframe.rds"))
+
+#Looking at the dataframe
+head(df)
+```
+
+# Creating the Summary Table 1
+
+```{r, Table1}
+#Loading in the summary table
+table1 <- readRDS(file=here::here("Output/SummaryTable.rds"))
+
+#Now printing out the table
+table1
+```
+
+
+
+# Kaplan Meier Curve
+```{r}
+#Loading in the figure
+figure<-knitr::include_graphics(here::here("Output/kaplanplot.jpg"))
+
+#Printing out the figure
+figure
+```
+
+
+
