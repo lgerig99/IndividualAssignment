@@ -7,6 +7,10 @@ Data/cleandataframe.rds: Programs/01Bringing_in_dataset.R Data/heart_failure_cli
 Output/SummaryTable.rds Output/KaplanPlot.jpg &: Programs/02CreatingProducts.R Data/cleandataframe.rds
 	Rscript Programs/02CreatingProducts.R
 
+.PHONY: install
+install:
+	Rscript -e "renv::restore(prompt = FALSE)"
+
 .PHONY: clean
 clean:
 	rm -f Output/*.rds && rm -f report.html && rm -f Output/*.jpg

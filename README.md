@@ -32,6 +32,13 @@ The project repository contains the directory with the following:
 # Creating the Report
 To create the report HTML, open up a git terminal and type in `make`, or `make report.html`. 
     
-    
-    
+# Synchronizing Packages
+
+To synchronzize the packages of your environment to that of the project's, please take the following steps:
+
+  1) Ensure you have `renv` package installed
+  2) Ensure the working directory in your R session is the one of the cloned project directory
+      Can do this via `setwd` and `getwd` commands
+  3) Now restore the package library (one you DOUBLE CHECKED that you are in the right working directory) with `renv::restore()`
+  4) Finally you can now ensure that the report builds by running `make` or running the contents of the code folder individually
     
