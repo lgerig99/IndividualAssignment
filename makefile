@@ -22,4 +22,4 @@ pull:
 	docker pull logangerig/final_image
 	
 project:
-	docker run -v "/$(pwd)/Report":/Info550Project/Report final_image
+	docker run -v "/$(pwd)/Report":/Info550Project/Report logangerig/final_image
