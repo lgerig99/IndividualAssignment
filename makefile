@@ -14,3 +14,12 @@ install:
 .PHONY: clean
 clean:
 	rm -f Output/*.rds && rm -f report.html && rm -f Output/*.jpg
+
+build:
+	docker build -t logangerig/final_image
+
+pull:
+	docker pull logangerig/final_image
+	
+project:
+	docker run -v "/$(pwd)/Report":/Info550Project/Report final_image
